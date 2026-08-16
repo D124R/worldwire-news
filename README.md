@@ -1,4 +1,4 @@
-# Atlas de Notícias
+# World Map News
 
 Um dashboard interativo de notícias globais construído com Next.js, React e TailwindCSS. Explore notícias de países ao redor do mundo organizadas por categoria em um mapa mundial interativo.
 
