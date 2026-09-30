@@ -9,8 +9,6 @@ import {
   Graticule,
 } from 'react-simple-maps'
 import { COUNTRIES } from '@/lib/countries'
-import { cn } from '@/lib/utils'
-
 const GEO_URL =
   'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
 
@@ -23,7 +21,7 @@ export function WorldMap({ selectedCode, onSelect }: Props) {
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-full w-full overflow-hidden bg-[#09121d]">
       <ComposableMap
         projection="geoEqualEarth"
         projectionConfig={{ scale: 165 }}
@@ -49,6 +47,13 @@ export function WorldMap({ selectedCode, onSelect }: Props) {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
+                  role="button"
+                  aria-label={
+                    isAvailable
+                      ? `Ver notícias de ${info!.name}`
+                      : 'País sem cobertura disponível'
+                  }
+                  tabIndex={isAvailable ? 0 : -1}
                   onClick={() => {
                     if (isAvailable) onSelect(geo.id as string)
                   }}
@@ -87,9 +92,6 @@ export function WorldMap({ selectedCode, onSelect }: Props) {
         </Geographies>
       </ComposableMap>
 
-      <p className="pointer-events-none absolute bottom-3 left-4 text-xs text-muted-foreground">
-        Países em destaque têm cobertura. Clique para abrir as notícias.
-      </p>
     </div>
   )
 }

@@ -20,7 +20,7 @@ export function NewsCard({ article }: { article: Article }) {
   return (
     <Wrapper
       {...linkProps}
-      className="group block rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary/60"
+      className="group block rounded-lg border border-white/10 bg-card/70 p-3 transition-colors hover:border-primary/50 hover:bg-card"
     >
       <div className="flex gap-4">
         {article.image ? (

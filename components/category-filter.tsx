@@ -20,7 +20,7 @@ export function CategoryFilter({ value, onChange }: Props) {
     <div
       role="tablist"
       aria-label="Filtrar notícias por categoria"
-      className="flex gap-2"
+      className="flex w-full gap-1.5 overflow-x-auto"
     >
       {CATEGORIES.map((c) => (
         <button
@@ -30,7 +30,7 @@ export function CategoryFilter({ value, onChange }: Props) {
           data-active={value === c.id}
           onClick={() => onChange(c.id)}
           className={cn(
-            'rounded-full border border-border px-4 py-1.5 text-sm font-medium transition-colors',
+            'h-7 shrink-0 rounded-full border border-border px-2.5 text-[11px] font-medium transition-colors',
             'text-muted-foreground hover:text-foreground',
             ACCENT[c.id],
           )}
